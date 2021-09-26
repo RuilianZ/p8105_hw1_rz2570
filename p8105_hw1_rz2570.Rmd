@@ -10,10 +10,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-library(tidyverse)
-```
-
-```{r}
 # create a random sample of size 10 from a standard Normal distribution
 set.seed(111) # make sure to get the same result every time
 random_norm = rnorm(10, mean = 0, sd = 1)
@@ -31,6 +27,24 @@ sweetness = c("30%_sugar", "sugar_free", "30%_sugar", "70%_sugar", "sugar_free",
 # check the length of the vector
 length(sweetness)
 
+#create the dataframe
 df = data_frame(random_norm, greater_than_0, favourite_fruits, sweetness)
 ```
+
+```{r}
+# load the tidyverse package
+library(tidyverse)
+
+# try to take the mean of each variable in the dataframe
+mean(pull(df, random_norm))
+
+mean(pull(df, greater_than_0))
+
+mean(pull(df, favourite_fruits)) # returns warning message: argument is not numeric or logical: returning NA
+
+mean(pull(df, sweetness)) # returns warning message: argument is not numeric or logical: returning NA
+
+# mean can be taken from numeric (random_norm) and logical (greater_than_0) variables, not characteristic (favourite_fruits and sweetness) variables
+```
+
 
