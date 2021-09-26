@@ -49,5 +49,9 @@ as.numeric(greater_than_0)
 as.numeric(fruits)
 
 as.numeric(sugar_level)
+mean(as.numeric(sugar_level))
 ```
 
+The logic variable can be converted to numeric variable (TRUE -> 1, FLASE -> 0), the mean of them is **directly** calculated based on these numeric value.  
+The character variable **can't** be converted to numeric variables, which will return a warning message: argument is not numeric or logical: returning NA.  
+The factor variable can be converted to numeric variable (low -> 1, medium ->2, high ->3). The mean of them can be calculated **after conversion**.  
