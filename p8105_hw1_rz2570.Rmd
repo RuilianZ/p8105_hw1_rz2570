@@ -1,0 +1,33 @@
+---
+title: "p8105_hw1_rz2570"
+author: "Ruilian Zhang"
+date: "9/26/2021"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+# create a random sample of size 10 from a standard Normal distribution
+set.seed(111)
+column1 = rnorm(10, mean = 0, sd = 1)
+
+# create a  logical vector indicating whether elements of the sample are greater than 0
+column2 = c(column1 > 0)
+
+# create a character vector of length 10
+column3 = c("Roxy's", "favourite", "fruits", "are", "apples", "strawberries", "mangos", "blueberries", "and", "avocados")
+length(column3)
+
+column4 = c("30%_sugar", "sugar_free", "30%_sugar", "70%_sugar", "sugar_free", "30%_sugar", "sugar_free", "70%_sugar", "70%_sugar", "30%_sugar")
+length(column4)
+
+df = data_frame(column1, column2, column3, column4)
+```
+
