@@ -81,3 +81,17 @@ ncol(penguins)
 mean(pull(penguins, flipper_length_mm), na.rm = TRUE)
 ```
 
+
+```{r}
+# make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x)
+penguins_plot = ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+  geom_point()
+```
+
+
+```{r, message = FALSE, warning = FALSE}
+# export the first scatterplot to project directory using ggsave
+ggsave(filename = "penguins_plot.tiff", plot = penguins_plot, device = "tiff")
+```
+
+
