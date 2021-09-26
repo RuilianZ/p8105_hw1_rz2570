@@ -1,3 +1,3 @@
 # p8105_hw1_rz2570
 
-This is homework 1 of P8105.
+This project is used for homework1 of P8105.
