@@ -18,17 +18,14 @@ random_norm = rnorm(10, mean = 0, sd = 1)
 greater_than_0 = c(column1 > 0)
 
 # create a character vector of length 10
-favourite_fruits = c("Roxy's", "favourite", "fruits", "are", "apples", "strawberries", "mangos", "blueberries", "and", "avocados")
-# check the length of the vector
-length(favourite_fruits)
+fruits = c("grape", "raspberry", "blackberry", "durian", "apple", "strawberry", "mango", "blueberry", "banana", "avocado")
 
 # create a factor vector of length 10, with 3 different factor “levels”
-sweetness = c("30%_sugar", "sugar_free", "30%_sugar", "70%_sugar", "sugar_free", "30%_sugar", "sugar_free", "70%_sugar", "70%_sugar", "30%_sugar")
-# check the length of the vector
-length(sweetness)
+sugar_level = c("low", "medium", "low", "high", "medium", "low", "medium", "high", "high", "low")
+sugar_level = factor(sugar_level, levels = c("low", "medium", "high"))
 
 #create the dataframe
-df = data_frame(random_norm, greater_than_0, favourite_fruits, sweetness)
+df = data_frame(random_norm, greater_than_0, fruits, sugar_level)
 ```
 
 ```{r}
@@ -40,11 +37,15 @@ mean(pull(df, random_norm))
 
 mean(pull(df, greater_than_0))
 
-mean(pull(df, favourite_fruits)) # returns warning message: argument is not numeric or logical: returning NA
+mean(pull(df, fruits)) # returns warning message: argument is not numeric or logical: returning NA
 
-mean(pull(df, sweetness)) # returns warning message: argument is not numeric or logical: returning NA
+mean(pull(df, sugar_level)) # returns warning message: argument is not numeric or logical: returning NA
+```
 
-# mean can be taken from numeric (random_norm) and logical (greater_than_0) variables, not characteristic (favourite_fruits and sweetness) variables
+Mean can be taken from numeric (random_norm) and logical (greater_than_0) variables, not character (favourite_fruits) and factor (sweetness) variables.
+
+```{r}
+
 ```
 
 
