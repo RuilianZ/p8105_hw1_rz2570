@@ -7,6 +7,7 @@ output: github_document
 
 ## *Problem 1*
 
+
 ```{r}
 # create a random sample of size 10 from a standard Normal distribution
 set.seed(111) # make sure to get the same result every time
@@ -26,6 +27,7 @@ sugar_level = factor(sugar_level, levels = c("low", "medium", "high"))
 df = data.frame(random_norm, greater_than_0, fruits, sugar_level)
 ```
 
+
 ```{r, message = FALSE, warning = FALSE}
 # load the tidyverse package
 library(tidyverse)
@@ -42,6 +44,7 @@ mean(pull(df, sugar_level)) # returns warning message: argument is not numeric o
 
 Mean can be taken from numeric (random_norm) and logical (greater_than_0) variables, not character (favourite_fruits) and factor (sweetness) variables.
 
+
 ```{r, eval = FALSE}
 # applies the as.numeric function to the logical, character, and factor variables
 as.numeric(greater_than_0)
@@ -55,3 +58,26 @@ mean(as.numeric(sugar_level))
 The logic variable can be converted to numeric variable (TRUE -> 1, FLASE -> 0), the mean of them is **directly** calculated based on these numeric value.  
 The character variable **can't** be converted to numeric variables, which will return a warning message: argument is not numeric or logical: returning NA.  
 The factor variable can be converted to numeric variable (low -> 1, medium ->2, high ->3). The mean of them can be calculated **after conversion**.  
+
+
+
+
+## *Problem 2*
+
+
+```{r}
+# load the penguins dataset
+data("penguins", package = "palmerpenguins")
+
+# make a short description of the dataset
+# names / values of important variables
+summary(penguins)
+
+# the size of the dataset
+nrow(penguins)
+ncol(penguins)
+
+# the mean flipper length (NA removed)
+mean(pull(penguins, flipper_length_mm), na.rm = TRUE)
+```
+
