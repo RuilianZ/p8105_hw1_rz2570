@@ -1,13 +1,11 @@
 ---
 title: "p8105_hw1_rz2570"
-author: "Ruilian Zhang"
-date: "9/26/2021"
+author: "**Ruilian Zhang**"
+date: "*9/26/2021*"
 output: github_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+## *Problem 1*
 
 ```{r}
 # create a random sample of size 10 from a standard Normal distribution
@@ -15,7 +13,7 @@ set.seed(111) # make sure to get the same result every time
 random_norm = rnorm(10, mean = 0, sd = 1)
 
 # create a  logical vector indicating whether elements of the sample are greater than 0
-greater_than_0 = c(column1 > 0)
+greater_than_0 = c(random_norm > 0)
 
 # create a character vector of length 10
 fruits = c("grape", "raspberry", "blackberry", "durian", "apple", "strawberry", "mango", "blueberry", "banana", "avocado")
@@ -24,11 +22,11 @@ fruits = c("grape", "raspberry", "blackberry", "durian", "apple", "strawberry", 
 sugar_level = c("low", "medium", "low", "high", "medium", "low", "medium", "high", "high", "low")
 sugar_level = factor(sugar_level, levels = c("low", "medium", "high"))
 
-#create the dataframe
-df = data_frame(random_norm, greater_than_0, fruits, sugar_level)
+# create the dataframe
+df = data.frame(random_norm, greater_than_0, fruits, sugar_level)
 ```
 
-```{r}
+```{r, message = FALSE, warning = FALSE}
 # load the tidyverse package
 library(tidyverse)
 
@@ -44,8 +42,12 @@ mean(pull(df, sugar_level)) # returns warning message: argument is not numeric o
 
 Mean can be taken from numeric (random_norm) and logical (greater_than_0) variables, not character (favourite_fruits) and factor (sweetness) variables.
 
-```{r}
+```{r, eval = FALSE}
+# applies the as.numeric function to the logical, character, and factor variables
+as.numeric(greater_than_0)
 
+as.numeric(fruits)
+
+as.numeric(sugar_level)
 ```
-
 
