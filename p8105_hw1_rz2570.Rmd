@@ -15,19 +15,22 @@ library(tidyverse)
 
 ```{r}
 # create a random sample of size 10 from a standard Normal distribution
-set.seed(111)
-column1 = rnorm(10, mean = 0, sd = 1)
+set.seed(111) # make sure to get the same result every time
+random_norm = rnorm(10, mean = 0, sd = 1)
 
 # create a  logical vector indicating whether elements of the sample are greater than 0
-column2 = c(column1 > 0)
+greater_than_0 = c(column1 > 0)
 
 # create a character vector of length 10
-column3 = c("Roxy's", "favourite", "fruits", "are", "apples", "strawberries", "mangos", "blueberries", "and", "avocados")
-length(column3)
+favourite_fruits = c("Roxy's", "favourite", "fruits", "are", "apples", "strawberries", "mangos", "blueberries", "and", "avocados")
+# check the length of the vector
+length(favourite_fruits)
 
-column4 = c("30%_sugar", "sugar_free", "30%_sugar", "70%_sugar", "sugar_free", "30%_sugar", "sugar_free", "70%_sugar", "70%_sugar", "30%_sugar")
-length(column4)
+# create a factor vector of length 10, with 3 different factor “levels”
+sweetness = c("30%_sugar", "sugar_free", "30%_sugar", "70%_sugar", "sugar_free", "30%_sugar", "sugar_free", "70%_sugar", "70%_sugar", "30%_sugar")
+# check the length of the vector
+length(sweetness)
 
-df = data_frame(column1, column2, column3, column4)
+df = data_frame(random_norm, greater_than_0, favourite_fruits, sweetness)
 ```
 
